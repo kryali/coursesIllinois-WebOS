@@ -1,0 +1,9 @@
+{
+	"id": "com.uiuc.coursesillinois",
+	"version": "1.0.0",
+	"vendor": "Kiran Ryali and Atul Gupte",
+	"type": "web",
+	"main": "index.html",
+	"title": "coursesIllinois",
+	"icon": "icon.png"
+}

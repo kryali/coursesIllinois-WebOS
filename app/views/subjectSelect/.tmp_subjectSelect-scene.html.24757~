@@ -1,0 +1,9 @@
+<!-- This is the UI html for the subjectSelect screen -->
+<div id="sash"></div>
+
+<div id="header" class="palm-header left" >Pick a course</div>
+
+<!-- Main list -->
+<div class="palm-list main-list">  
+   <div id="MyList" x-mojo-element='FilterList'></div>  
+</div>
