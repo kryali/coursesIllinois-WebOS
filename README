@@ -17,22 +17,22 @@ Notable Features:
 				
 ==============================================================
 Program Flow:
-	1. User Starts Home Screen
-	2. Selects "MyCourses Button"
-	3. Launch SubjectSelectAssistant
-	4. User Selects subject
-	5. Launch ClassSelectAssistant
-	6. User Selects a class
+	#. User Starts Home Screen
+	#. Selects "MyCourses Button"
+	#. Launch SubjectSelectAssistant
+	#. User Selects subject
+	#. Launch ClassSelectAssistant
+	#. User Selects a class
 		. Display all sections
 		. Add to calendar
 			. Class becomes added to 'coursesIllinois' depot 
 			. Becomes avaliable in myCourses 
 		. Check Professor's rating
-	7. Launch MyCoursesAssistant
+	#. Launch MyCoursesAssistant
 		. Select class
 			- remove from depot
 			- add task
-	8. Launch myTasksAssistant
+	#. Launch myTasksAssistant
 		. Add task in section for class
 	
 	
@@ -41,9 +41,9 @@ CHANGELOG - 12/2/2010
 =============================================================
 
 Features added:
-	-Prevent calendar conflicts
-	-Persistent storage of classes of the user
-	-Editable Task list
+	#Prevent calendar conflicts
+	#Persistent storage of classes of the user
+	#Editable Task list
 	
 [NEW] MyCourses file: 
 
