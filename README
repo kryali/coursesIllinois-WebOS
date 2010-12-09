@@ -2,16 +2,16 @@
 coursesIllinois: 
 
 Summary:
-    coursesIllinois is a productivity application designed for University of Illinois students. The purpose is for the ability for a student to browse currently offered courses, add and remove them from a persistent list. Then, add the time of the class to the calendar. A reach goal is to create a tagging system for use with a task list. The language used in this project will be Javascript interfacing with Palm’s WebOS SDK. The relevant library is Prototype and Mojo.Test (which is included in the SDK). The targeted platforms are any devices running WebOS ex. Palm Pre, Palm Pre Plus, etc...
+    coursesIllinois is a productivity application designed for University of Illinois students. The purpose is for the ability for a student to browse currently offered courses, add and remove them from a persistent list. Then, add the time of the class to the calendar. A reach goal is to create a tagging system for use with a task list. The language used in this project will be Javascript interfacing with Palm¿s WebOS SDK. The relevant library is Prototype and Mojo.Test (which is included in the SDK). The targeted platforms are any devices running WebOS ex. Palm Pre, Palm Pre Plus, etc...
 
 Motivation:
     The motivation behind choosing this application was to complete an application initially started for a developmental competition. This application was decided because I wanted to create something useful as well as interesting to create real value. The problem I intend to solve is the difficulty in students keeping track of both their classes and their assignments.
 	
 Notable Features:    
-	1. Recieve information for specific courses			
+	1. [FINISHED]Recieve information for specific courses			
 	2. [FINISHED] Calendar integration - adding sections to calendar events
-		- TODO: Store events, check for existing events etc.
-    3. Saved courses - keeping track of a user's courses
+		[FINISHED] - TODO: Store events, check for existing events etc.
+    3. [FINISHED] Saved courses - keeping track of a user's courses
     4. Task list tagging - tag assignments and todo's with saved course id
     5. [FINISHED] Searchable Lists - filter through courseList with user input 
 				
@@ -23,8 +23,80 @@ Program Flow:
 	4. User Selects subject
 	5. Launch ClassSelectAssistant
 	6. User Selects a class
-	7. Display all sections
+		. Display all sections
+		. Add to calendar
+			. Class becomes added to 'coursesIllinois' depot 
+			. Becomes avaliable in myCourses 
+		. Check Professor's rating
+	7. Launch MyCoursesAssistant
+		. Select class
+			- remove from depot
+			- add task
+	8. Launch myTasksAssistant
+		. Add task in section for class
 	
+	
+=============================================================
+CHANGELOG - 12/2/2010
+=============================================================
+
+Features added:
+	-Prevent calendar conflicts
+	-Persistent storage of classes of the user
+	-Editable Task list
+	
+[NEW] MyCourses file: 
+
+/*
+	MyCoursesAssistant.prototype.listTap = function(event)
+	*	List Tap method invoked on the listTap event
+	*		@param: event - instance of the event
+	*		function: If the item tapped is a "(+)", then launch the browser selector
+	*				Else, bring up menu options for the instance
+*/
+
+/*
+	MyCoursesAssistant.prototype.depotInitializeSuccess = function(object)
+	*	Called on the success of a depot initialization, attempts to read the classes from the depot
+*/
+
+
+/*
+	MyCoursesAssistant.prototype.grabClasses = function(object){
+	*	Called from a successful retrieval of "classes" from the database
+	*	- If there are no classes, suggest the user add some
+		- If there are classes, build the list
+*/
+
+[NEW] MyTasks
+listAddHandler - add item to list
+listDeleteHandler - remove item from the list
+listReorderHandler - reorder events
+
+[UPDATED] SectionSelect
+
+/*
+*	checkConflicts is the caller for the checkEvents function
+*		it sends a request to the calendar to retrieve all of its events
+*/
+SectionSelectAssistant.prototype.checkConflicts = function(calendarId, event){
+
+/*
+* grabClasses is called after a class wants to be added to the persistent list
+* 	on the success event of a depot.get("classes")
+*/
+SectionSelectAssistant.prototype.grabClasses = function(object){
+
+/**
+ * Called on the success event of an addition to the calendar
+ * @param {Object} event - event that is bound to the function
+ */
+SectionSelectAssistant.prototype.successEvent = function(event){
+
+/*
+* Extracted tests function from the event parseMethod
+*/
+SectionSelectAssistant.prototype.tests = function(endHours, endMinutes, startHours, startMinutes, rrule){
 =============================================================
 CHANGELOG - 11/18/2010
 =============================================================
@@ -97,6 +169,6 @@ Added Functions
 		-handles user input and returns matches for subject name and title
 =============================================================
 TODO: 
-1.	Integrate calendar addition to program (use Palm’s calendar API)
-2.	Use a persistent list to store user’s courses and help manage calendars
-3.	Either implement a task list or find a way to interact with Palm’s current task list
+1.	Integrate calendar addition to program (use Palm¿s calendar API)
+2.	Use a persistent list to store user¿s courses and help manage calendars
+3.	Either implement a task list or find a way to interact with Palm¿s current task list
