@@ -19,15 +19,9 @@ function SectionSelectAssistant(url,  title, subject, calendarId) {
 	//DEBUG: Mojo.Log.info("TITLE:" + this.title);
 	//		 Mojo.Log.info("TITLE:" + this.newurl);
 	var options = { name: 'coursesIllinois', version: 1, replace: false, estimatedSize: 100000 };  
-<<<<<<< HEAD
     this.depot = new Mojo.Depot(options, this.gotDepot.bind(this), this.failureHandler.bind(this));  
 	//this.depot.removeAll(null,null);
    
-=======
-	this.depot = new Mojo.Depot(options, this.gotDepot.bind(this), this.failureHandler.bind(this));  
-   //this.depot.removeAll(null,null);
-    
->>>>>>> 22b4e0a8eea79b6b9ce3ade5e9b8a844b826ccd6
 }
 
 SectionSelectAssistant.prototype.gotDepot = function(object){
@@ -40,34 +34,18 @@ SectionSelectAssistant.prototype.gotDepot = function(object){
 	}*/
 }
 
-<<<<<<< HEAD
 SectionSelectAssistant.prototype.grabClasses = function(object){
 	
 	if(object==null){
 		Mojo.Log.info("Got null from grabClasses");
 		this.currentClasses = new Array();
 	}else{
-=======
-/*
-* grabClasses is called after a class wants to be added to the persistent list
-* 	on the success event of a depot.get("classes")
-*/
-SectionSelectAssistant.prototype.grabClasses = function(object){
-	
-	if(object==null){
-		// The inital object is empty, so build a new one
-	//	Mojo.Log.info("Got null from grabClasses");
-		this.currentClasses = new Array();
-	}else{
-		// Set the object to this.currentClasses
->>>>>>> 22b4e0a8eea79b6b9ce3ade5e9b8a844b826ccd6
 		this.currentClasses = object;
 	}
 	
 		
 	Mojo.Log.info("Event: %s", this.event.subject);
 	if(this.currentClasses==null){
-<<<<<<< HEAD
 		Mojo.Log.info("NULL!");
 		this.currentClasses = new Array();
 	}
@@ -83,29 +61,6 @@ SectionSelectAssistant.prototype.grabClasses = function(object){
 	this.depot.add("classes", this.currentClasses,this.addedValue.bind(this),this.failureHandler.bind(this));
 
 	
-=======
-		Mojo.Log.info("Well, this should never happen!");
-		this.currentClasses = new Array();
-	}
-	else{
-		// Iterate through the classes list and see whether or not it exists in the database already
-		for(var i = 0; i < this.currentClasses.length; i++){
-			if(this.currentClasses[i]==this.event.subject){
-				Mojo.Log.info("Not a unique");
-			}
-			else{
-				Mojo.Log.info("This is a unique class.");
-			}
-		}
-	}
-	
-	// Push the current subject onto the currentClasses object
-	this.currentClasses.push(this.event.subject);
-	// Add the classes to the depot
-	this.depot.add("classes", this.currentClasses,this.addedValue.bind(this),this.failureHandler.bind(this));
-
-	// Show the success dialog!
->>>>>>> 22b4e0a8eea79b6b9ce3ade5e9b8a844b826ccd6
       this.controller.showAlertDialog({
          onChoose: function(value) {},
          title: $L("Class Added!"),
@@ -119,7 +74,6 @@ SectionSelectAssistant.prototype.grabClasses = function(object){
 }
 
 /**
-<<<<<<< HEAD
  * Displays succes dialog on the addition of a class to the calendar
  * @param {Object} event - event that is bound to the function
  */
@@ -128,18 +82,6 @@ SectionSelectAssistant.prototype.successEvent = function(event){
 		if(this.depot==null){
 			Mojo.Log.info("well, fuck");
 		}
-=======
- * Called on the success event of an addition to the calendar
- * @param {Object} event - event that is bound to the function
- */
-SectionSelectAssistant.prototype.successEvent = function(event){
-	
-	try {
-		if(this.depot==null){	// sanity check
-			Mojo.Log.info("well, fuck");
-		}
-		// Grab the classes from the depot and add the current class if its successful
->>>>>>> 22b4e0a8eea79b6b9ce3ade5e9b8a844b826ccd6
 		this.depot.get("classes", this.grabClasses.bind(this), this.failureHandler.bind(this));
 	}
 	catch (e){
@@ -155,11 +97,7 @@ SectionSelectAssistant.prototype.failureHandler = function(response){
 	Mojo.Log.error("function failed, reason: %s", response.errorText);
 }
 /**
-<<<<<<< HEAD
  * DEBUG Purposes: logs erronous data
-=======
- * DEBUG Purposes: log data about the class that was added and print out the list of classes
->>>>>>> 22b4e0a8eea79b6b9ce3ade5e9b8a844b826ccd6
  * @param {Object} response
  */
 SectionSelectAssistant.prototype.addedValue = function(response){
@@ -169,27 +107,6 @@ SectionSelectAssistant.prototype.addedValue = function(response){
 	}
 }
 
-<<<<<<< HEAD
-=======
-/*
-* Extracted tests function from the event parseMethod
-*/
-SectionSelectAssistant.prototype.tests = function(endHours, endMinutes, startHours, startMinutes, rrule){
-	
-	//TESTS - CS 125
-	if(endHours ==2)
-		Mojo.Log.info("PASSED! EndHours: %d", endHours);
-	if(endMinutes ==50)
-		Mojo.Log.info("PASSED! EndMinutes: %d", endMinutes);	
-	if(startHours ==2)
-		Mojo.Log.info("PASSED! startHours: %d", startHours);
-	if(startMinutes ==00)
-		Mojo.Log.info("PASSED! startMinutes: %d", startMinutes);	
-	if( rrule == "RRULE:FREQ=WEEKLY;BYDAY=MO,WE,FR")
-		Mojo.Log.info("PASSED! rrule: %d", rrule);
-}
-
->>>>>>> 22b4e0a8eea79b6b9ce3ade5e9b8a844b826ccd6
 /**
  * createEvent: parses the selected class data and adds detail to the calendar
  * @param {Object} calendarId - id of the calendar
@@ -221,30 +138,6 @@ SectionSelectAssistant.prototype.parseEvent = function(calendarId, event){
 	Mojo.Log.info(timeArr[1]);					// timeArr[1] end Time
 	time = timeArr[0].split(" ");				// Remove the PM from the string
 	hoursAndMinutes = time[0].split(":");		// Split the start time into hours and minutes
-<<<<<<< HEAD
-	startHours = parseInt(hoursAndMinutes[0]);
-	startMinutes = parseInt(hoursAndMinutes[1]);
-	Mojo.Log.info("StartHours: %d", startHours);
-	Mojo.Log.info("StartMinutes: %d", startMinutes);
-	hoursAndMinutes = timeArr[1].split(" ")[0].split(":");	//Split the end time into hours and minutes
-	endHours = parseInt(hoursAndMinutes[0]);
-	endMinutes = parseInt(hoursAndMinutes[1]);
-	
-	Mojo.Log.info("endHours: %d", endHours);
-	Mojo.Log.info("endMinutes: %d", endMinutes);
-	
-	// Use an offset variable to calculate the offset
-	for( var j =0; j<time.length; j++){
-		if (time[j] == "PM") {
-			timeOffset = 43200;
-			if( endHours!= 12)
-				endHours += 12;
-			if(startHours != 12)
-				startHours += 12;
-		}
-	}
-	Mojo.Log.info(startHours);
-=======
 	startHours = hoursAndMinutes[0];
 	startMinutes = hoursAndMinutes[1];
 	Mojo.Log.info("StartHours: %d", startHours);
@@ -260,7 +153,6 @@ SectionSelectAssistant.prototype.parseEvent = function(calendarId, event){
 			timeOffset = 43200;
 	}
 	//Mojo.Log.info(timeOffset);
->>>>>>> 22b4e0a8eea79b6b9ce3ade5e9b8a844b826ccd6
 	
 	// Create a date variable and set the set the the hours
 	// and minutes to the timeStamp of the class start time
@@ -271,14 +163,8 @@ SectionSelectAssistant.prototype.parseEvent = function(calendarId, event){
 	//startTime.setMilliseconds(0);
 	//startTime.setSeconds(0);
 	
-<<<<<<< HEAD
-	Mojo.Log.info(startTime);
-	startTime = startTime.getTime();
-	//startTime += timeOffset;
-=======
 	startTime = startTime.getTime();
 	startTime += timeOffset;
->>>>>>> 22b4e0a8eea79b6b9ce3ade5e9b8a844b826ccd6
 	// Apply the same algorithm to the endTime
 	var endTime = new Date();
 	endTime.setHours(endHours);
@@ -287,15 +173,8 @@ SectionSelectAssistant.prototype.parseEvent = function(calendarId, event){
 	//endTime.setMilliseconds(0);
 	//endTime.setSeconds(0);
 	endTime = endTime.getTime();
-<<<<<<< HEAD
-	//endTime += timeOffset;
-	
-	Mojo.Log.info(new Date(endTime));
-=======
 	endTime += timeOffset;
 	
-
->>>>>>> 22b4e0a8eea79b6b9ce3ade5e9b8a844b826ccd6
 	// According to rfc2445 standards
 	var rrule = "RRULE:FREQ=WEEKLY;BYDAY="; // Assumption - All classes are weekly
 	// Split the days string into an array of days [M,W,F] -> [M;W;F]
@@ -316,7 +195,6 @@ SectionSelectAssistant.prototype.parseEvent = function(calendarId, event){
 			rrule += "FR";
 	}
 	
-<<<<<<< HEAD
 	//TESTS - CS 125
 	if(endHours ==2)
 		Mojo.Log.info("PASSED! EndHours: %d", endHours);
@@ -329,9 +207,6 @@ SectionSelectAssistant.prototype.parseEvent = function(calendarId, event){
 	if( rrule == "RRULE:FREQ=WEEKLY;BYDAY=MO,WE,FR")
 		Mojo.Log.info("PASSED! rrule: %d", rrule);
 	
-=======
-	this.tests(endHours,endMinutes,startHours,startMinutes,rrule);
->>>>>>> 22b4e0a8eea79b6b9ce3ade5e9b8a844b826ccd6
 	//var endDate = new Date(endTime);
 	//var year = endDate.getFullYear();
 	//Mojo.Log.info("full:%s", year);
@@ -359,19 +234,11 @@ SectionSelectAssistant.prototype.parseEvent = function(calendarId, event){
 }
 
 
-<<<<<<< HEAD
 
-=======
-/*
-*	checkEvents - Verify that none of the existing calendar events conflict in time
-*				 with the class that
-*/
->>>>>>> 22b4e0a8eea79b6b9ce3ade5e9b8a844b826ccd6
 SectionSelectAssistant.prototype.checkEvents = function(array){
 	events = array.events;
 	//Mojo.Log.info("%d-%d", this.start, this.end);
 		
-<<<<<<< HEAD
 	for(var i =0; i < events.length; i++){
 		if( (this.start >= events[i].startTimestamp && this.start <= events[i].endTimestamp)
 		|| (this.end >= events[i].startTimestamp && this.end <= events[i].endTimestamp)){
@@ -385,33 +252,6 @@ SectionSelectAssistant.prototype.checkEvents = function(array){
 SectionSelectAssistant.prototype.checkConflicts = function(calendarId, event){
 	//Mojo.Log.info("START: %d", event.startTimestamp);
 	//Mojo.Log.info("END: %d", event.endTimestamp);
-=======
-	// Iterate through all the existing calendar events and check the current event against it
-	for(var i =0; i < events.length; i++){
-		
-		// If the class' start or end timestamp are within the bounds of any calendar item, then this is a conflict
-		//		So don't add it!
-		if( (this.start >= events[i].startTimestamp && this.start <= events[i].endTimestamp)
-		|| (this.end >= events[i].startTimestamp && this.end <= events[i].endTimestamp)){
- 			 Mojo.Controller.errorDialog("Class conflict exists: "+ events[i].subject + "-" + events[i].note );	
-			// Return control to the caller on a conflict
-			return;
-		}
-	}
-	// No conflicts at this point, add the calendar
-	this.addEvent(this.calendarId, this.event);
-}
-
-/*
-*	checkConflicts is the caller for the checkEvents function
-*		it sends a request to the calendar to retrieve all of its events
-*/
-SectionSelectAssistant.prototype.checkConflicts = function(calendarId, event){
-	//Mojo.Log.info("START: %d", event.startTimestamp);
-	//Mojo.Log.info("END: %d", event.endTimestamp);
-	
-	//Set the event start and end times to the variables
->>>>>>> 22b4e0a8eea79b6b9ce3ade5e9b8a844b826ccd6
 	this.start = event.startTimestamp;
 	this.end = event.endTimestamp;
 	this.calendarId = calendarId;
@@ -432,14 +272,7 @@ SectionSelectAssistant.prototype.checkConflicts = function(calendarId, event){
 	});
 }
 
-<<<<<<< HEAD
 
-=======
-/*
-*	Called on a succesful completion of checkEvents, adds the event to the calendar
-		- OnSuccess: Calls successEvent which would add it to the database
-*/
->>>>>>> 22b4e0a8eea79b6b9ce3ade5e9b8a844b826ccd6
 SectionSelectAssistant.prototype.addEvent = function(calendarId, event){
 	
 	// Main event request
@@ -492,7 +325,6 @@ SectionSelectAssistant.prototype.setup = function() {
 	
 };
 
-<<<<<<< HEAD
 SectionSelectAssistant.prototype.listTap = function(event){
 	
 	
@@ -500,17 +332,6 @@ SectionSelectAssistant.prototype.listTap = function(event){
          onChoose: function(value) {
 		 	if(value==0){
 				this.parseEvent(this.calendarId, event);
-=======
-/*
-*	listTap: When the user selects a class, ask him whether or not he wants to add it to the calendar
-*/
-SectionSelectAssistant.prototype.listTap = function(event){
-      this.controller.showAlertDialog({
-         onChoose: function(value) {
-			// If Value ==0 then the user wants to add it to the calendar
-		 	if(value==0){
-				this.parseEvent(this.calendarId, event);	//parse the event and add it to the calendar
->>>>>>> 22b4e0a8eea79b6b9ce3ade5e9b8a844b826ccd6
 			}
 		 },
          title: $L("Add to Calendar"),

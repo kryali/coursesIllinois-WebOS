@@ -3,12 +3,19 @@
 	
 	// FROM PALM SAMPLE
 */
+<<<<<<< HEAD
 function MyTasksAssistant(calendar, class) {
+=======
+function MyTasksAssistant() {
+>>>>>>> 22b4e0a8eea79b6b9ce3ade5e9b8a844b826ccd6
 	/* this is the creator function for your scene assistant object. It will be passed all the 
 	   additional parameters (after the scene name) that were passed to pushScene. The reference
 	   to the scene controller (this.controller) has not be established yet, so any initialization
 	   that needs the scene controller should be done in the setup function below. */		
+<<<<<<< HEAD
 	   this.classTitle = class;
+=======
+>>>>>>> 22b4e0a8eea79b6b9ce3ade5e9b8a844b826ccd6
 }
 
 MyTasksAssistant.prototype.setup = function(){
@@ -17,7 +24,11 @@ MyTasksAssistant.prototype.setup = function(){
 		//this.controller.setupWidget(Mojo.viewMenu, undefined, {items: [{label: $L("A Tasks List")}, {}]});
 		
 		// Set up a few models so we can test setting the widget model:
+<<<<<<< HEAD
 		this.tasksModel = {listTitle:$L(this.classTitle), items:this.listTestWordList};
+=======
+		this.tasksModel = {listTitle:$L('CS125'), items:this.listTestWordList};
+>>>>>>> 22b4e0a8eea79b6b9ce3ade5e9b8a844b826ccd6
 		this.currentModel = this.tasksModel;
 		
 		// Set up the attributes & model for the List widget:

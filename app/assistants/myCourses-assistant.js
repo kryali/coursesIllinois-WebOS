@@ -42,7 +42,11 @@ MyCoursesAssistant.prototype.listTap = function(event){
 		  this.controller.showAlertDialog({
         	onChoose: function(value) {
 				if (value == 0) {
+<<<<<<< HEAD
 					this.controller.stageController.pushScene("myTasks", this.calendarId, event.item.description);
+=======
+					this.controller.stageController.pushScene("myTasks", this.calendarId);
+>>>>>>> 22b4e0a8eea79b6b9ce3ade5e9b8a844b826ccd6
 				}
 				else {	
 					
