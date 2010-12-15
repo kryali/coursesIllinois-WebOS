@@ -1,0 +1,44 @@
+/* TODO: put your application-specific CSS here */
+
+.my-scene-fade-top{
+	position: fixed;
+	top: 0;
+	z-index: 99999;
+	height: 54px;
+	width: 100%;
+	background: url(../images/my-scene-fade-top.png) top center repeat-x;
+}
+
+#sash{
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 100000;
+	height: 111px;
+	width: 113px;
+	background: url(../images/mojo-sash.png) top center repeat-x;
+}
+
+#chief{
+	margin-left: 7px;
+	padding: 10px;
+}
+
+
+a{
+	color: #003153;
+	text-decoration: none;
+}
+
+.top{
+	z-index: 100000;
+}
+
+.my-scene-fade-bottom{
+	position: fixed;
+	bottom: 0;
+	z-index: 100000;
+	height: 54px;
+	width: 100%;
+	background: url(../images/my-scene-fade-bottom.png) top center repeat-x;
+}

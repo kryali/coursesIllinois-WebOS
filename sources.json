@@ -1,0 +1,39 @@
+[
+    {"source": "app/assistants/stage-assistant.js"},
+    {
+        "scenes": "parsePage",
+        "source": "app/assistants/parsePage-assistant.js"
+    },
+    {
+        "scenes": "subjectSelect",
+        "source": "app/assistants/subjectSelect-assistant.js"
+    },
+    {
+        "scenes": "classSelect",
+        "source": "app/assistants/classSelect-assistant.js"
+    },
+    {
+        "scenes": "sectionSelect",
+        "source": "app/assistants/sectionSelect-assistant.js"
+    },
+    {
+        "scenes": "semesterSelect",
+        "source": "app/assistants/semesterSelect-assistant.js"
+    },
+    {
+        "scenes": "welcomePage",
+        "source": "app/assistants/welcomePage-assistant.js"
+    },
+    {
+        "scenes": "aboutPage",
+        "source": "app/assistants/aboutPage-assistant.js"
+    },
+    {
+        "scenes": "myCourses",
+        "source": "app/assistants/myCourses-assistant.js"
+    },
+    {
+        "scenes": "myTasks",
+        "source": "app/assistants/myTasks-assistant.js"
+    }
+]
