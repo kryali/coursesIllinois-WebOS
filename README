@@ -2,7 +2,7 @@
 coursesIllinois: 
 
 Summary:
-    coursesIllinois is a productivity application designed for University of Illinois students. The purpose is for the ability for a student to browse currently offered courses, add and remove them from a persistent list. Then, add the time of the class to the calendar. A reach goal is to create a tagging system for use with a task list. The language used in this project will be Javascript interfacing with Palm’s WebOS SDK. The relevant library is Prototype and Mojo.Test (which is included in the SDK). The targeted platforms are any devices running WebOS ex. Palm Pre, Palm Pre Plus, etc...
+    coursesIllinois is a productivity application designed for University of Illinois students. The purpose is for the ability for a student to browse currently offered courses, add and remove them from a persistent list. Then, add the time of the class to the calendar. A reach goal is to create a tagging system for use with a task list. The language used in this project will be Javascript interfacing with Palmï¿½s WebOS SDK. The relevant library is Prototype and Mojo.Test (which is included in the SDK). The targeted platforms are any devices running WebOS ex. Palm Pre, Palm Pre Plus, etc...
 
 Motivation:
     The motivation behind choosing this application was to complete an application initially started for a developmental competition. This application was decided because I wanted to create something useful as well as interesting to create real value. The problem I intend to solve is the difficulty in students keeping track of both their classes and their assignments.
@@ -97,6 +97,6 @@ Added Functions
 		-handles user input and returns matches for subject name and title
 =============================================================
 TODO: 
-1.	Integrate calendar addition to program (use Palm’s calendar API)
-2.	Use a persistent list to store user’s courses and help manage calendars
-3.	Either implement a task list or find a way to interact with Palm’s current task list
+1.	Integrate calendar addition to program (use Palmï¿½s calendar API)
+2.	Use a persistent list to store userï¿½s courses and help manage calendars
+3.	Either implement a task list or find a way to interact with Palmï¿½s current task list
